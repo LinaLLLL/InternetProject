@@ -30,3 +30,17 @@ while True:
     
     # Обнаружение кота на изображении
     cats = cat_cascade.detectMultiScale(gray, 1.1, 4)
+    
+    if len(cats) > 0:
+    
+        # Если кот найден, записываем в файл (моделируем работу с портами)
+        with open("/home/lina1/Desktop/project/cat_detected", "w") as f:
+            f.write("Cat detected!")
+
+        # Воспроизведение звука
+        play_sound()
+        time.sleep(3)  # Задержка для предотвращения многократного воспроизведения звука
+        
+        # Сохранение скриншота
+        screenshot_path = f"/home/lina1/Desktop/project/screenshot_{int(time.time())}.png"
+        cv2.imwrite(screenshot_path, frame)
