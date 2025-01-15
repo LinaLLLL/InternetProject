@@ -17,3 +17,16 @@ if cat_cascade.empty():
 	
 # Открытие камеры
 cap = cv2.VideoCapture(0)
+
+while True:
+    # Считывание кадра с камеры
+    ret, frame = cap.read()
+
+    if not ret:
+        break
+
+    # Преобразование изображения в оттенки серого для обработки
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
+    # Обнаружение кота на изображении
+    cats = cat_cascade.detectMultiScale(gray, 1.1, 4)
