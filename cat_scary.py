@@ -14,3 +14,6 @@ def play_sound():
 cat_cascade = cv2.CascadeClassifier("/home/lina1/Desktop/project/haarcascade_frontalcatface.xml")
 if cat_cascade.empty():
 	print("ошибка загрузки каскада. проверьте путь и файл")
+	
+# Открытие камеры
+cap = cv2.VideoCapture(0)
