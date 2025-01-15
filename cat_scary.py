@@ -48,4 +48,13 @@ while True:
     # Отображение видео
     for (x, y, w, h) in cats:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-        cv2.imshow("Cat Detector", frame)
+        
+    cv2.imshow("Cat Detector", frame)
+        
+    # Прерывание цикла при нажатии клавиши ESC
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+# Освобождение ресурсов
+cap.release()
+cv2.destroyAllWindows()
