@@ -44,3 +44,8 @@ while True:
         # Сохранение скриншота
         screenshot_path = f"/home/lina1/Desktop/project/screenshot_{int(time.time())}.png"
         cv2.imwrite(screenshot_path, frame)
+        
+    # Отображение видео
+    for (x, y, w, h) in cats:
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        cv2.imshow("Cat Detector", frame)
